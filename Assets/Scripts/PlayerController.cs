@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private KeyCode blockKeyCode = KeyCode.Space;
     [SerializeField]
     private KeyCode highComboKeyCode = KeyCode.U;
+    [SerializeField]
+    private KeyCode lowComboKeyCode = KeyCode.I;
 
     private Animator animator;
 
@@ -59,9 +61,19 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(highComboKeyCode))
         {
-            int highComboCount = animator.GetInteger(AnimatorParameters.s_highCombo);
-            highComboCount++;
-            animator.SetInteger(AnimatorParameters.s_highCombo, highComboCount);
+            AddComboToAnimParameter(AnimatorParameters.s_highCombo);
         }
+
+        if (Input.GetKeyDown(lowComboKeyCode))
+        {
+            AddComboToAnimParameter(AnimatorParameters.s_lowCombo);
+        }
+    }
+
+    private void AddComboToAnimParameter(int animatorParameter)
+    {
+        int comboCount = animator.GetInteger(animatorParameter);
+        comboCount++;
+        animator.SetInteger(animatorParameter, comboCount);
     }
 }

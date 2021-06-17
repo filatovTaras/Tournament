@@ -19,5 +19,6 @@ public class CommandBuffer : MonoBehaviour
     public void ClearAnimatorParameters()
     {
         animator.SetInteger(AnimatorParameters.s_highCombo, 0);
+        animator.SetInteger(AnimatorParameters.s_lowCombo, 0);
     }
 }
