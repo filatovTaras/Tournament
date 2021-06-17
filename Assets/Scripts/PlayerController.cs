@@ -10,48 +10,58 @@ public class PlayerController : MonoBehaviour
     private KeyCode backKeyCode = KeyCode.A;
     [SerializeField]
     private KeyCode blockKeyCode = KeyCode.Space;
+    [SerializeField]
+    private KeyCode highComboKeyCode = KeyCode.U;
 
     private Animator animator;
-
-    static readonly int s_forwardParameterHash = Animator.StringToHash("Forward");
-    static readonly int s_backParameterHash = Animator.StringToHash("Back");
-    static readonly int s_blockParameterHash = Animator.StringToHash("isBlocking");
 
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        if (animator == null)
+        {
+            Debug.LogError("Не найден компонент Animator");
+        }
     }
 
     void Update()
     {
         if (Input.GetKeyDown(forwardKeyCode))
         {
-            animator.SetBool(s_forwardParameterHash, true);
+            animator.SetBool(AnimatorParameters.s_forward, true);
         }
 
         if (Input.GetKeyUp(forwardKeyCode))
         {
-            animator.SetBool(s_forwardParameterHash, false);
+            animator.SetBool(AnimatorParameters.s_forward, false);
         }
 
         if (Input.GetKeyDown(backKeyCode))
         {
-            animator.SetBool(s_backParameterHash, true);
+            animator.SetBool(AnimatorParameters.s_back, true);
         }
 
         if (Input.GetKeyUp(backKeyCode))
         {
-            animator.SetBool(s_backParameterHash, false);
+            animator.SetBool(AnimatorParameters.s_back, false);
         }
 
         if (Input.GetKeyDown(blockKeyCode))
         {
-            animator.SetBool(s_blockParameterHash, true);
+            animator.SetBool(AnimatorParameters.s_block, true);
         }
 
         if (Input.GetKeyUp(blockKeyCode))
         {
-            animator.SetBool(s_blockParameterHash, false);
+            animator.SetBool(AnimatorParameters.s_block, false);
+        }
+
+        if (Input.GetKeyDown(highComboKeyCode))
+        {
+            int highComboCount = animator.GetInteger(AnimatorParameters.s_highCombo);
+            highComboCount++;
+            animator.SetInteger(AnimatorParameters.s_highCombo, highComboCount);
         }
     }
 }
