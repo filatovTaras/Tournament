@@ -8,11 +8,14 @@ public class PlayerController : MonoBehaviour
     private KeyCode forwardKeyCode = KeyCode.D;
     [SerializeField]
     private KeyCode backKeyCode = KeyCode.A;
+    [SerializeField]
+    private KeyCode blockKeyCode = KeyCode.Space;
 
     private Animator animator;
 
     static readonly int s_forwardParameterHash = Animator.StringToHash("Forward");
     static readonly int s_backParameterHash = Animator.StringToHash("Back");
+    static readonly int s_blockParameterHash = Animator.StringToHash("isBlocking");
 
     void Start()
     {
@@ -39,6 +42,16 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyUp(backKeyCode))
         {
             animator.SetBool(s_backParameterHash, false);
+        }
+
+        if (Input.GetKeyDown(blockKeyCode))
+        {
+            animator.SetBool(s_blockParameterHash, true);
+        }
+
+        if (Input.GetKeyUp(blockKeyCode))
+        {
+            animator.SetBool(s_blockParameterHash, false);
         }
     }
 }
