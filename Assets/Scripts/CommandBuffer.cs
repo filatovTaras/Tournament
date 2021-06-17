@@ -9,6 +9,11 @@ public class CommandBuffer : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        if (animator == null)
+        {
+            Debug.LogError("Не найден компонент Animator");
+        }
     }
 
     public void ClearAnimatorParameters()
