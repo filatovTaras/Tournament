@@ -946,7 +946,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &1165939990
+--- !u!114 &1165939991
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -955,14 +955,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1165939987}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f46d9e56f671404197d981169f5e7cc, type: 3}
+  m_Script: {fileID: 11500000, guid: cd6c3cf7c071ae5449981395d6248cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardKeyCode: 100
-  backKeyCode: 97
-  blockKeyCode: 32
-  highComboKeyCode: 117
-  lowComboKeyCode: 105
+  hitBoxes:
+  - {fileID: 235511646}
+  - {fileID: 623595217}
+  - {fileID: 252376852}
+  - {fileID: 78709603}
+  hurtBoxes:
+  - {fileID: 281120721}
+  - {fileID: 1818149842}
+  - {fileID: 1662072119}
+  - {fileID: 917726036}
+  - {fileID: 559618762}
+  isPlayer: 1
 --- !u!136 &1165939993
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -972,7 +979,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1165939987}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.4
   m_Height: 2
   m_Direction: 1
@@ -1123,3 +1130,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &2053157298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053157294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6c3cf7c071ae5449981395d6248cf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitBoxes:
+  - {fileID: 1329317753}
+  - {fileID: 2004916775}
+  - {fileID: 793873200}
+  - {fileID: 974834550}
+  hurtBoxes:
+  - {fileID: 565022924}
+  - {fileID: 2042471702}
+  - {fileID: 721368929}
+  - {fileID: 509167992}
+  - {fileID: 989350351}
+  isPlayer: 0
