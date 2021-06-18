@@ -5,9 +5,24 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     [SerializeField]
-    private List<SphereCollider> hitBoxes = new List<SphereCollider>();
+    private CapsuleCollider[] hurtBoxesArray = new CapsuleCollider[5];
+
     [SerializeField]
-    private List<CapsuleCollider> hurtBoxes = new List<CapsuleCollider>();
+    private HitDetector RightHandHD;
+    [SerializeField]
+    private HitDetector LeftHandHD;
+    [SerializeField]
+    private HitDetector RightFootHD;
+    [SerializeField]
+    private HitDetector LeftFootHD;
+    [SerializeField] // Сериалайз для тестов
+    private HitDetector ActualHitDetector = null;
+
+    private SphereCollider RightHandCollider;
+    private SphereCollider LeftHandCollider;
+    private SphereCollider RightFootCollider;
+    private SphereCollider LeftFootCollider;
+    private SphereCollider ActualCollider;
 
     private readonly LayerMask playerHitBoxLayer = 10;
     private readonly LayerMask playerHurtBoxLayer = 11;
@@ -19,32 +34,80 @@ public class Character : MonoBehaviour
 
     void Start()
     {
-        SetIsPlayer(isPlayer); // Для тестов
+        RightHandCollider = RightHandHD.gameObject.GetComponent<SphereCollider>();
+        LeftHandCollider =  LeftHandHD.gameObject.GetComponent<SphereCollider>();
+        RightFootCollider = RightFootHD.gameObject.GetComponent<SphereCollider>();
+        LeftFootCollider = LeftFootHD.gameObject.GetComponent<SphereCollider>();
+
+        SetLayersOnColliders(enemyHitBoxLayer, enemyHurtBoxLayer);
+        
+        if (isPlayer) SetIsPlayer(); //для тестов
+
     }
 
-    public void SetIsPlayer(bool isPlayer)
+    public void SetIsPlayer()
     {
-        if (isPlayer)
-        {
-            SetLayersOnColliders(playerHitBoxLayer, playerHurtBoxLayer);
-            gameObject.AddComponent<PlayerController>();
-        }
-        else
-        {
-            SetLayersOnColliders(enemyHitBoxLayer, enemyHurtBoxLayer);
-        }
+        SetLayersOnColliders(playerHitBoxLayer, playerHurtBoxLayer);
+        gameObject.AddComponent<PlayerController>();
     }
 
     private void SetLayersOnColliders(LayerMask hitBoxLayerMask, LayerMask hurtBoxLayerMask)
     {
-        foreach(SphereCollider hitBox in hitBoxes)
-        {
-            hitBox.gameObject.layer = hitBoxLayerMask;
-        }
+        RightHandHD.gameObject.layer = hitBoxLayerMask;
+        LeftHandHD.gameObject.layer = hitBoxLayerMask;
+        RightFootHD.gameObject.layer = hitBoxLayerMask;
+        LeftFootHD.gameObject.layer = hitBoxLayerMask;
 
-        foreach(CapsuleCollider hurtBox in hurtBoxes)
+        foreach(CapsuleCollider hurtBox in hurtBoxesArray)
         {
             hurtBox.gameObject.layer = hurtBoxLayerMask;
         }
+    }
+
+    public void Hit()
+    {
+        Character target = ActualHitDetector.GetCharacterHitted();
+        Debug.Log("hit" + target);
+
+        if (target == null) return;
+
+        target.TakeDamage();
+
+        ActualHitDetector.ResetCharacterHitted();
+        ActualCollider.enabled = false;
+        ActualHitDetector = null;
+        ActualCollider = null;
+    }
+
+    public void TakeDamage()
+    {
+    }
+
+    public void SetRightHandActualHitDetector()
+    {
+        ActualHitDetector = RightHandHD;
+        ActualCollider = RightHandCollider;
+        ActualCollider.enabled = true;
+    }
+
+    public void SetLeftHandActualHitDetector()
+    {
+        ActualHitDetector = LeftHandHD;
+        ActualCollider = LeftHandCollider;
+        ActualCollider.enabled = true;
+    }
+
+    public void SetRightFootActualHitDetector()
+    {
+        ActualHitDetector = RightFootHD;
+        ActualCollider = RightFootCollider;
+        ActualCollider.enabled = true;
+    }
+
+    public void SetLeftFootActualHitDetector()
+    {
+        ActualHitDetector = LeftFootHD;
+        ActualCollider = LeftFootCollider;
+        ActualCollider.enabled = true;
     }
 }
