@@ -24,6 +24,8 @@ public class Character : MonoBehaviour
     private SphereCollider LeftFootCollider;
     private SphereCollider ActualCollider;
 
+    private Animator Animator;
+
     private readonly LayerMask playerHitBoxLayer = 10;
     private readonly LayerMask playerHurtBoxLayer = 11;
     private readonly LayerMask enemyHitBoxLayer = 12;
@@ -34,6 +36,8 @@ public class Character : MonoBehaviour
 
     void Start()
     {
+        Animator = GetComponent<Animator>();
+
         RightHandCollider = RightHandHD.gameObject.GetComponent<SphereCollider>();
         LeftHandCollider =  LeftHandHD.gameObject.GetComponent<SphereCollider>();
         RightFootCollider = RightFootHD.gameObject.GetComponent<SphereCollider>();
@@ -64,14 +68,13 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void Hit()
+    public void Hit(string takeHitReaction)
     {
         Character target = ActualHitDetector.GetCharacterHitted();
-        Debug.Log("hit" + target);
 
         if (target == null) return;
 
-        target.TakeDamage();
+        target.TakeDamage(takeHitReaction);
 
         ActualHitDetector.ResetCharacterHitted();
         ActualCollider.enabled = false;
@@ -79,8 +82,10 @@ public class Character : MonoBehaviour
         ActualCollider = null;
     }
 
-    public void TakeDamage()
+    public void TakeDamage(string takeHitReaction)
     {
+        int takeHitReactionHash = Animator.StringToHash(takeHitReaction);
+        Animator.SetTrigger(takeHitReactionHash);
     }
 
     public void SetRightHandActualHitDetector()
