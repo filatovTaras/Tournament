@@ -90,29 +90,28 @@ public class Character : MonoBehaviour
 
     public void SetRightHandActualHitDetector()
     {
-        ActualHitDetector = RightHandHD;
-        ActualCollider = RightHandCollider;
-        ActualCollider.enabled = true;
+        SetCurrentHitComponents(RightHandHD, RightHandCollider);
     }
 
     public void SetLeftHandActualHitDetector()
     {
-        ActualHitDetector = LeftHandHD;
-        ActualCollider = LeftHandCollider;
-        ActualCollider.enabled = true;
+        SetCurrentHitComponents(LeftHandHD, LeftHandCollider);
     }
 
     public void SetRightFootActualHitDetector()
     {
-        ActualHitDetector = RightFootHD;
-        ActualCollider = RightFootCollider;
-        ActualCollider.enabled = true;
+        SetCurrentHitComponents(RightFootHD, RightFootCollider);
     }
 
     public void SetLeftFootActualHitDetector()
     {
-        ActualHitDetector = LeftFootHD;
-        ActualCollider = LeftFootCollider;
+        SetCurrentHitComponents(LeftFootHD, LeftFootCollider);
+    }
+
+    private void SetCurrentHitComponents(HitDetector hitDetector, SphereCollider hitCollider)
+    {
+        ActualHitDetector = hitDetector;
+        ActualCollider = hitCollider;
         ActualCollider.enabled = true;
     }
 }
