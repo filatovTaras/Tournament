@@ -5,6 +5,9 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     [SerializeField]
+    private Health health;
+
+    [SerializeField]
     private CapsuleCollider[] hurtBoxesArray = new CapsuleCollider[5];
 
     [SerializeField]
@@ -83,6 +86,8 @@ public class Character : MonoBehaviour
     {
         int takeHitReactionHash = Animator.StringToHash(takeHitReaction);
         Animator.SetTrigger(takeHitReactionHash);
+
+        health.ReduceHealth(damage);
     }
 
     public void SetRightHandActualHitDetector()

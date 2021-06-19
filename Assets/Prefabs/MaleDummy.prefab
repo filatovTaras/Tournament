@@ -2258,6 +2258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6c3cf7c071ae5449981395d6248cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 6713867827380316723}
   hurtBoxesArray:
   - {fileID: 281120721}
   - {fileID: 1818149842}
