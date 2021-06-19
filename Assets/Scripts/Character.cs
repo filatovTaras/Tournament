@@ -15,7 +15,6 @@ public class Character : MonoBehaviour
     private HitDetector RightFootHD;
     [SerializeField]
     private HitDetector LeftFootHD;
-    [SerializeField] // Сериалайз для тестов
     private HitDetector ActualHitDetector = null;
 
     private SphereCollider RightHandCollider;
@@ -70,16 +69,13 @@ public class Character : MonoBehaviour
 
     public void Hit(string takeHitReaction)
     {
-        Character target = ActualHitDetector.GetCharacterHitted();
+        Character target = ActualHitDetector.GetCharacterHitted(true);
 
         if (target == null) return;
 
         target.TakeDamage(takeHitReaction);
 
-        ActualHitDetector.ResetCharacterHitted();
-        ActualCollider.enabled = false;
-        ActualHitDetector = null;
-        ActualCollider = null;
+        ResetHitComponents();
     }
 
     public void TakeDamage(string takeHitReaction)
@@ -90,28 +86,35 @@ public class Character : MonoBehaviour
 
     public void SetRightHandActualHitDetector()
     {
-        SetCurrentHitComponents(RightHandHD, RightHandCollider);
+        SetHitComponents(RightHandHD, RightHandCollider);
     }
 
     public void SetLeftHandActualHitDetector()
     {
-        SetCurrentHitComponents(LeftHandHD, LeftHandCollider);
+        SetHitComponents(LeftHandHD, LeftHandCollider);
     }
 
     public void SetRightFootActualHitDetector()
     {
-        SetCurrentHitComponents(RightFootHD, RightFootCollider);
+        SetHitComponents(RightFootHD, RightFootCollider);
     }
 
     public void SetLeftFootActualHitDetector()
     {
-        SetCurrentHitComponents(LeftFootHD, LeftFootCollider);
+        SetHitComponents(LeftFootHD, LeftFootCollider);
     }
 
-    private void SetCurrentHitComponents(HitDetector hitDetector, SphereCollider hitCollider)
+    private void SetHitComponents(HitDetector hitDetector, SphereCollider hitCollider)
     {
         ActualHitDetector = hitDetector;
         ActualCollider = hitCollider;
         ActualCollider.enabled = true;
+    }
+
+    private void ResetHitComponents()
+    {
+        ActualHitDetector = null;
+        ActualCollider = null;
+        ActualCollider.enabled = false;
     }
 }

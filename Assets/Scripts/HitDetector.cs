@@ -11,7 +11,7 @@ public class HitDetector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        CharacterHitted = other.GetComponent<HurtBox>().GetCharacterComponent();
+        CharacterHitted = other.GetComponent<HurtBox>().Character;
         enterCount++;
     }
 
@@ -24,14 +24,17 @@ public class HitDetector : MonoBehaviour
         ResetCharacterHitted();
     }
 
-    public void ResetCharacterHitted()
+    private Character ResetCharacterHitted()
     {
+        Character chrc = CharacterHitted;
         CharacterHitted = null;
         enterCount = 0;
+
+        return chrc;
     }
 
-    public Character GetCharacterHitted()
+    public Character GetCharacterHitted(bool isResetData)
     {
-        return CharacterHitted;
+        return (isResetData) ? ResetCharacterHitted() : CharacterHitted;
     }
 }

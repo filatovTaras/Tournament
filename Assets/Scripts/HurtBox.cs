@@ -4,11 +4,5 @@ using UnityEngine;
 
 public class HurtBox : MonoBehaviour
 {
-    [SerializeField]
-    private Character Character;
-
-    public Character GetCharacterComponent()
-    {
-        return Character;
-    }
+    public readonly Character Character;
 }
