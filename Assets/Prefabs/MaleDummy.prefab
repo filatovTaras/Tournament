@@ -773,7 +773,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.22
+  m_Radius: 0.15
   m_Height: 0.6
   m_Direction: 0
   m_Center: {x: -0.21, y: 0, z: 0}
@@ -789,7 +789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1797095032a63ca47bbf64c74a62813b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Character: {fileID: 1165939991}
+  _Character: {fileID: 1165939991}
 --- !u!1 &367304667414434242
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,7 +833,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.22
+  m_Radius: 0.15
   m_Height: 0.6
   m_Direction: 0
   m_Center: {x: -0.21, y: 0, z: 0}
@@ -849,7 +849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1797095032a63ca47bbf64c74a62813b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Character: {fileID: 1165939991}
+  _Character: {fileID: 1165939991}
 --- !u!1 &367304667414434244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,7 +1203,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.22
+  m_Radius: 0.15
   m_Height: 0.74
   m_Direction: 0
   m_Center: {x: -0.2, y: 0, z: 0}
@@ -1219,7 +1219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1797095032a63ca47bbf64c74a62813b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Character: {fileID: 1165939991}
+  _Character: {fileID: 1165939991}
 --- !u!1 &367304667414434266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,7 +1263,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.22
+  m_Radius: 0.15
   m_Height: 0.74
   m_Direction: 0
   m_Center: {x: -0.2, y: 0, z: 0}
@@ -1279,7 +1279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1797095032a63ca47bbf64c74a62813b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Character: {fileID: 1165939991}
+  _Character: {fileID: 1165939991}
 --- !u!1 &367304667414434268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2115,7 +2115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1797095032a63ca47bbf64c74a62813b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Character: {fileID: 1165939991}
+  _Character: {fileID: 1165939991}
 --- !u!1 &8654250720420973336
 GameObject:
   m_ObjectHideFlags: 0
@@ -2161,6 +2161,7 @@ GameObject:
   - component: {fileID: 1165939993}
   - component: {fileID: 1165939988}
   - component: {fileID: 1165939991}
+  - component: {fileID: 6713867827380316723}
   m_Layer: 9
   m_Name: MaleDummy
   m_TagString: Untagged
@@ -2267,8 +2268,21 @@ MonoBehaviour:
   LeftHandHD: {fileID: 235511647}
   RightFootHD: {fileID: 78709604}
   LeftFootHD: {fileID: 252376853}
-  ActualHitDetector: {fileID: 0}
   isPlayer: 1
+--- !u!114 &6713867827380316723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8654250720420973338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4800228a880974e885b9a08d529aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
 --- !u!1 &8654250720420973342
 GameObject:
   m_ObjectHideFlags: 0

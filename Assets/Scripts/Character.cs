@@ -73,12 +73,13 @@ public class Character : MonoBehaviour
 
         if (target == null) return;
 
-        target.TakeDamage(takeHitReaction);
+        // Магическое число для тестов
+        target.TakeDamage(takeHitReaction, 5);
 
         ResetHitComponents();
     }
 
-    public void TakeDamage(string takeHitReaction)
+    public void TakeDamage(string takeHitReaction, float damage)
     {
         int takeHitReactionHash = Animator.StringToHash(takeHitReaction);
         Animator.SetTrigger(takeHitReactionHash);
@@ -114,7 +115,7 @@ public class Character : MonoBehaviour
     private void ResetHitComponents()
     {
         ActualHitDetector = null;
-        ActualCollider = null;
         ActualCollider.enabled = false;
+        ActualCollider = null;
     }
 }
