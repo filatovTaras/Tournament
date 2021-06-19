@@ -32,9 +32,22 @@ public class Character : MonoBehaviour
     private readonly LayerMask playerHurtBoxLayer = 11;
     private readonly LayerMask enemyHitBoxLayer = 12;
     private readonly LayerMask enemyHurtBoxLayer = 13;
-
+    
     [SerializeField]
-    private bool isPlayer = false; // Для тестов
+    private bool _isPlayer = false;
+
+    public bool isPlayer
+    {
+        get
+        {
+            return _isPlayer;
+        }
+        set
+        {
+            _isPlayer = value;
+            SetIsPlayer(_isPlayer);
+        }
+    }
 
     void Start()
     {
@@ -47,14 +60,24 @@ public class Character : MonoBehaviour
 
         SetLayersOnColliders(enemyHitBoxLayer, enemyHurtBoxLayer);
         
-        if (isPlayer) SetIsPlayer(); //для тестов
-
+        SetIsPlayer(_isPlayer);
     }
 
-    public void SetIsPlayer()
+    public void SetIsPlayer(bool value)
     {
-        SetLayersOnColliders(playerHitBoxLayer, playerHurtBoxLayer);
-        gameObject.AddComponent<PlayerController>();
+        if (value)
+        {
+            SetLayersOnColliders(playerHitBoxLayer, playerHurtBoxLayer);
+            gameObject.AddComponent<PlayerController>();
+        }
+        else
+        {
+            SetLayersOnColliders(enemyHitBoxLayer, enemyHurtBoxLayer);
+
+            PlayerController PlayerController = gameObject.GetComponent<PlayerController>();
+            if (PlayerController != null)
+                Destroy(PlayerController);
+        }
     }
 
     private void SetLayersOnColliders(LayerMask hitBoxLayerMask, LayerMask hurtBoxLayerMask)

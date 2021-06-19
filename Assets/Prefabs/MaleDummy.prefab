@@ -2269,7 +2269,7 @@ MonoBehaviour:
   LeftHandHD: {fileID: 235511647}
   RightFootHD: {fileID: 78709604}
   LeftFootHD: {fileID: 252376853}
-  isPlayer: 1
+  _isPlayer: 0
 --- !u!114 &6713867827380316723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2282,8 +2282,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4800228a880974e885b9a08d529aba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerHealthSO: {fileID: 11400000, guid: 65ece548be83ad147b27bf08836e6c52, type: 2}
+  EnemyHealthSO: {fileID: 11400000, guid: c888af2ab50bf6a42a5b2bf68eab7b11, type: 2}
+  Character: {fileID: 1165939991}
   maxHealth: 100
-  currentHealth: 0
+  _currentHealth: 0
 --- !u!1 &8654250720420973342
 GameObject:
   m_ObjectHideFlags: 0
