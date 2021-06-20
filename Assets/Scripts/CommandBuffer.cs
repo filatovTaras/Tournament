@@ -29,11 +29,8 @@ public class CommandBuffer : MonoBehaviour
 
         buffer.Add(command);
 
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") && !animator.IsInTransition(0))
         {
-            if (animator.IsInTransition(0))
-                return;
-
             TrySetNextAnimatorParameter();
         }
     }
