@@ -3764,6 +3764,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.296378
+        functionName: TrySetNextAnimatorParameter
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.35493785
         functionName: Hit
         data: pHighFrontWeak
@@ -4142,6 +4149,13 @@ ModelImporter:
       events:
       - time: 0
         functionName: SetLeftHandActualHitDetector
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.29807693
+        functionName: TrySetNextAnimatorParameter
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -4713,6 +4727,13 @@ ModelImporter:
       events:
       - time: 0
         functionName: SetRightHandActualHitDetector
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.3621795
+        functionName: TrySetNextAnimatorParameter
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

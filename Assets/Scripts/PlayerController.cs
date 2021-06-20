@@ -14,16 +14,30 @@ public class PlayerController : MonoBehaviour
     private KeyCode highComboKeyCode = KeyCode.U;
     [SerializeField]
     private KeyCode lowComboKeyCode = KeyCode.I;
+    [SerializeField]
+    private KeyCode special1 = KeyCode.Alpha1;
+    [SerializeField]
+    private KeyCode special2 = KeyCode.Alpha2;
+    [SerializeField]
+    private KeyCode special3 = KeyCode.Alpha3;
+
+    private CommandBuffer commandBuffer;
 
     private Animator animator;
 
     void Start()
     {
+        commandBuffer = GetComponent<CommandBuffer>();
         animator = GetComponent<Animator>();
 
-        if (animator == null)
+        if (commandBuffer == null)
         {
-            Debug.LogError("Не найден компонент Animator");
+            Debug.LogError("Не найден компонент CommandBuffer");
+        }
+
+        if(animator == null)
+        {
+            Debug.Log("Не найден компонент Animator");
         }
     }
 
@@ -33,47 +47,45 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool(AnimatorParameters.s_forward, true);
         }
-
-        if (Input.GetKeyUp(forwardKeyCode))
+        else if (Input.GetKeyUp(forwardKeyCode))
         {
             animator.SetBool(AnimatorParameters.s_forward, false);
         }
-
-        if (Input.GetKeyDown(backKeyCode))
+        else if (Input.GetKeyDown(backKeyCode))
         {
             animator.SetBool(AnimatorParameters.s_back, true);
         }
-
-        if (Input.GetKeyUp(backKeyCode))
+        else if (Input.GetKeyUp(backKeyCode))
         {
             animator.SetBool(AnimatorParameters.s_back, false);
         }
-
-        if (Input.GetKeyDown(blockKeyCode))
+        else if (Input.GetKeyDown(blockKeyCode))
         {
             animator.SetBool(AnimatorParameters.s_block, true);
         }
-
-        if (Input.GetKeyUp(blockKeyCode))
+        else if (Input.GetKeyUp(blockKeyCode))
         {
             animator.SetBool(AnimatorParameters.s_block, false);
         }
-
-        if (Input.GetKeyDown(highComboKeyCode))
+        else if (Input.GetKeyDown(highComboKeyCode))
         {
-            AddComboToAnimParameter(AnimatorParameters.s_highCombo);
+            commandBuffer.AddCommandToBuffer(AnimatorParameters.s_highCombo);
         }
-
-        if (Input.GetKeyDown(lowComboKeyCode))
+        else if (Input.GetKeyDown(lowComboKeyCode))
         {
-            AddComboToAnimParameter(AnimatorParameters.s_lowCombo);
+            commandBuffer.AddCommandToBuffer(AnimatorParameters.s_lowCombo);
         }
-    }
-
-    private void AddComboToAnimParameter(int animatorParameter)
-    {
-        int comboCount = animator.GetInteger(animatorParameter);
-        comboCount++;
-        animator.SetInteger(animatorParameter, comboCount);
+        else if (Input.GetKeyDown(special1))
+        {
+            commandBuffer.AddCommandToBuffer(AnimatorParameters.s_Special1);
+        }
+        else if (Input.GetKeyDown(special2))
+        {
+            commandBuffer.AddCommandToBuffer(AnimatorParameters.s_Special2);
+        }
+        else if (Input.GetKeyDown(special3))
+        {
+            commandBuffer.AddCommandToBuffer(AnimatorParameters.s_Special3);
+        }
     }
 }

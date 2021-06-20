@@ -9,10 +9,14 @@ public class AnimatorParameters : MonoBehaviour
     public static readonly int s_block = Animator.StringToHash("isBlocking");
     public static readonly int s_highCombo = Animator.StringToHash("HighCombo");
     public static readonly int s_lowCombo = Animator.StringToHash("LowCombo");
+    public static readonly int s_Special1 = Animator.StringToHash("Special1");
+    public static readonly int s_Special2 = Animator.StringToHash("Special2");
+    public static readonly int s_Special3 = Animator.StringToHash("Special3");
+
     public static readonly int s_pHighFrontWeak = Animator.StringToHash("pHighFrontWeak"); 
     public static readonly int s_mHighLeftMed = Animator.StringToHash("mHighLeftMed");
     public static readonly int s_pHighUpperWeak = Animator.StringToHash("pHighUpperWeak"); 
     public static readonly int s_pLowLeftWeak = Animator.StringToHash("pLowLeftWeak"); 
     public static readonly int s_mMidRightWeak = Animator.StringToHash("mMidRightWeak"); 
-    public static readonly int s_HighKOAir = Animator.StringToHash("HighKOAir"); 
+    public static readonly int s_HighKOAir = Animator.StringToHash("HighKOAir");
 }

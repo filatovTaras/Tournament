@@ -2642,6 +2642,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.2724359
+        functionName: TrySetNextAnimatorParameter
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.36116537
         functionName: Hit
         data: mMidRightWeak
@@ -3563,6 +3570,13 @@ ModelImporter:
       events:
       - time: 0
         functionName: SetLeftFootActualHitDetector
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.19551283
+        functionName: TrySetNextAnimatorParameter
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -5394,6 +5408,13 @@ ModelImporter:
       events:
       - time: 0
         functionName: SetLeftFootActualHitDetector
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.33333334
+        functionName: TrySetNextAnimatorParameter
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
