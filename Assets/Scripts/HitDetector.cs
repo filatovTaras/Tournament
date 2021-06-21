@@ -5,36 +5,42 @@ using UnityEngine;
 public class HitDetector : MonoBehaviour
 {
     [SerializeField]
-    private Character CharacterHitted = null;
+    private SphereCollider hitCollider;
 
-    private int enterCount = 0;
+    private string hitReaction = "";
+
+    private float damage = 0;
+
+    void Start()
+    {
+        hitCollider.enabled = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        CharacterHitted = other.GetComponent<HurtBox>().Character;
-        enterCount++;
+        Character target = other.GetComponent<HurtBox>().Character;
+
+        if (target == null)
+            return;
+
+        target.TakeDamage(hitReaction, damage);
+
+        DeactivateDetector();
     }
 
-    private void OnTriggerExit(Collider other)
+    public void ActivateDetector(string hitReaction, float damage)
     {
-        enterCount--;
+        this.hitReaction = hitReaction;
+        this.damage = damage;
 
-        if (enterCount > 0) return;
-
-        ResetCharacterHitted();
+        hitCollider.enabled = true;
     }
 
-    private Character ResetCharacterHitted()
+    public void DeactivateDetector()
     {
-        Character chrc = CharacterHitted;
-        CharacterHitted = null;
-        enterCount = 0;
+        hitReaction = "";
+        damage = 0;
 
-        return chrc;
-    }
-
-    public Character GetCharacterHitted(bool isResetData)
-    {
-        return (isResetData) ? ResetCharacterHitted() : CharacterHitted;
+        hitCollider.enabled = false;
     }
 }

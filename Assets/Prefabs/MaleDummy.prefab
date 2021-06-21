@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1931486469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1931486470}
+  m_Layer: 9
+  m_Name: Special1 Start Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1931486470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931486469}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8654250720420943610}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &367304667414434096
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3df6e8b65220ef4da4fb53381d201a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterHitted: {fileID: 0}
+  hitCollider: {fileID: 78709603}
 --- !u!1 &367304667414434098
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3df6e8b65220ef4da4fb53381d201a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterHitted: {fileID: 0}
+  hitCollider: {fileID: 252376852}
 --- !u!1 &367304667414434100
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,7 +819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1797095032a63ca47bbf64c74a62813b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Character: {fileID: 1165939991}
+  _Character: {fileID: 4706179661361525939}
 --- !u!1 &367304667414434242
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,7 +879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1797095032a63ca47bbf64c74a62813b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Character: {fileID: 1165939991}
+  _Character: {fileID: 4706179661361525939}
 --- !u!1 &367304667414434244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,7 +1249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1797095032a63ca47bbf64c74a62813b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Character: {fileID: 1165939991}
+  _Character: {fileID: 4706179661361525939}
 --- !u!1 &367304667414434266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,7 +1309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1797095032a63ca47bbf64c74a62813b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Character: {fileID: 1165939991}
+  _Character: {fileID: 4706179661361525939}
 --- !u!1 &367304667414434268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1591,7 +1621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3df6e8b65220ef4da4fb53381d201a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterHitted: {fileID: 0}
+  hitCollider: {fileID: 623595217}
 --- !u!1 &367304667414434286
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,7 +1683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3df6e8b65220ef4da4fb53381d201a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterHitted: {fileID: 0}
+  hitCollider: {fileID: 235511646}
 --- !u!1 &367304667414434288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2115,7 +2145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1797095032a63ca47bbf64c74a62813b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Character: {fileID: 1165939991}
+  _Character: {fileID: 4706179661361525939}
 --- !u!1 &8654250720420973336
 GameObject:
   m_ObjectHideFlags: 0
@@ -2160,8 +2190,9 @@ GameObject:
   - component: {fileID: 1165939989}
   - component: {fileID: 1165939993}
   - component: {fileID: 1165939988}
-  - component: {fileID: 1165939991}
   - component: {fileID: 6713867827380316723}
+  - component: {fileID: 792765469}
+  - component: {fileID: 4706179661361525939}
   m_Layer: 9
   m_Name: MaleDummy
   m_TagString: Untagged
@@ -2182,6 +2213,7 @@ Transform:
   m_Children:
   - {fileID: 8654250720420943608}
   - {fileID: 8654250720420943614}
+  - {fileID: 1931486470}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2246,30 +2278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de216c50c0a0dd4fba753ecb75a5f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1165939991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8654250720420973338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd6c3cf7c071ae5449981395d6248cf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: {fileID: 6713867827380316723}
-  hurtBoxesArray:
-  - {fileID: 281120721}
-  - {fileID: 1818149842}
-  - {fileID: 1662072119}
-  - {fileID: 917726036}
-  - {fileID: 559618762}
-  RightHandHD: {fileID: 623595218}
-  LeftHandHD: {fileID: 235511647}
-  RightFootHD: {fileID: 78709604}
-  LeftFootHD: {fileID: 252376853}
-  _isPlayer: 0
 --- !u!114 &6713867827380316723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2284,9 +2292,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerHealthSO: {fileID: 11400000, guid: 65ece548be83ad147b27bf08836e6c52, type: 2}
   EnemyHealthSO: {fileID: 11400000, guid: c888af2ab50bf6a42a5b2bf68eab7b11, type: 2}
-  Character: {fileID: 1165939991}
-  maxHealth: 100
+  Character: {fileID: 4706179661361525939}
+  _maxHealth: 100
   _currentHealth: 0
+--- !u!114 &792765469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8654250720420973338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7a793a843354e245ae5b8f0732f7a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePrefab: {fileID: 8016703912338447041, guid: 32b1906ccc6f85e428fe9e7f0262a969,
+    type: 3}
+  startPosition: {fileID: 1931486470}
+  damage: 20
+  hitReaction: HighKOAir
+--- !u!114 &4706179661361525939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8654250720420973338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810fe3a33eb90f44cb2bb6f6bb72e9fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 6713867827380316723}
+  hurtBoxesArray:
+  - {fileID: 281120721}
+  - {fileID: 1818149842}
+  - {fileID: 1662072119}
+  - {fileID: 917726036}
+  - {fileID: 559618762}
+  RightHandHD: {fileID: 623595218}
+  LeftHandHD: {fileID: 235511647}
+  RightFootHD: {fileID: 78709604}
+  LeftFootHD: {fileID: 252376853}
+  _isPlayer: 1
 --- !u!1 &8654250720420973342
 GameObject:
   m_ObjectHideFlags: 0
